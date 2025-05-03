@@ -31,6 +31,19 @@ for spine in ax.spines.values():
 ax.set_facecolor("white")
 ax.tick_params(axis="both", which="major", pad=5)
 
+def calculate_polygon_area(angles, values):
+    x = values * np.cos(angles)
+    y = values * np.sin(angles)
+    area = 0.5 * np.abs(np.dot(x, np.roll(y, 1)) - np.dot(y, np.roll(x, 1)))
+    return area
+
+area = calculate_polygon_area(np.array(angles), np.array(values))
+
+ax.text(0, 0, f"{area:.1f}",
+        ha='center', va='center',
+        fontsize=20, fontweight='bold',
+        color='black')
+
 plt.title(
     "Life directions",
     va="bottom",
