@@ -1,4 +1,5 @@
 data.py
 .venv
+.idea/
 *png
 __pycache__
