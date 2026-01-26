@@ -47,7 +47,7 @@ ax.text(0, 0, f"{area:.1f}",
         color='black')
 
 plt.title(
-    "Life directions",
+    name,
     va="bottom",
     fontsize=18,
     color="black",
