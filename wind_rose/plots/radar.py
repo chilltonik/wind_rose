@@ -39,6 +39,28 @@ def plot_radar(
     )
     ax.fill(angles, values_plot, alpha=0.25, color="#2E86AB")
 
+    # Add value labels next to each point
+    for angle, value in zip(angles[:-1], values):
+        # Calculate offset for label positioning (slightly outside the point)
+        offset = measure * 0.1
+        label_radius = value + offset
+
+        # Place text label at each data point
+        ax.text(
+            angle,
+            label_radius,
+            str(value),
+            ha="center",
+            va="center",
+            fontsize=fs.tick_label - 2,
+            bbox=dict(
+                boxstyle="round,pad=0.3",
+                facecolor="white",
+                edgecolor="#2E86AB",
+                alpha=0.9,
+            ),
+        )
+
     target_circle = np.linspace(0, 2 * np.pi, 100)
     ax.plot(
         target_circle,
