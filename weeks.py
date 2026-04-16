@@ -16,13 +16,12 @@ from dataclasses import dataclass
 
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
-from matplotlib.ticker import NullLocator
 
 YEARS = 100
 WEEKS_PER_ROW = 52
 
 
-# ── theme definitions ─────────────────────────────────────────────────────────
+# ── theme definitions ────────────────────────────────────────────────────────
 
 
 @dataclass
@@ -74,7 +73,7 @@ LIGHT = Theme(
 THEMES: dict[str, Theme] = {"dark": DARK, "light": LIGHT}
 
 
-# ── helpers ───────────────────────────────────────────────────────────────────
+# ── helpers ──────────────────────────────────────────────────────────────────
 
 
 def _hex_to_rgb(h: str) -> tuple[float, float, float]:
@@ -88,7 +87,7 @@ def _lerp(
     return tuple(c1[i] + (c2[i] - c1[i]) * t for i in range(3))  # type: ignore[return-value]
 
 
-# ── drawing ───────────────────────────────────────────────────────────────────
+# ── drawing ──────────────────────────────────────────────────────────────────
 
 
 def _draw_grid(
@@ -215,7 +214,7 @@ def _draw_header(
     fig.text(
         0.5,
         _y(10),
-        "100  ЛЕТ  В  НЕДЕЛЯХ",
+        "100  YEARS  IN  WEEKS",
         ha="center",
         va="top",
         fontsize=10,
@@ -228,8 +227,8 @@ def _draw_header(
     if current_week is None:
         fig.text(
             0.5,
-            _y(30),
-            f"{total_weeks} недель  ·  {YEARS} лет",
+            _y(35),
+            f"{total_weeks} weeks  ·  {YEARS} years",
             ha="center",
             va="top",
             fontsize=6,
@@ -260,7 +259,7 @@ def _draw_header(
     fig.text(
         0.5,
         _y(57),
-        f"год {year_num}  ·  неделя года {week_in_year}  ·  осталось {weeks_left} нед.",
+        f"year {year_num} week {week_in_year} left {weeks_left} weeks",
         ha="center",
         va="top",
         fontsize=5.5,
@@ -303,7 +302,7 @@ def _draw_header(
     )
 
 
-# ── main ──────────────────────────────────────────────────────────────────────
+# ── main ─────────────────────────────────────────────────────────────────────
 
 
 def main() -> None:
