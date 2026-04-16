@@ -247,7 +247,7 @@ def _draw_header(
     fig.text(
         0.5,
         _y(35),
-        f"неделя  {weeks_done}  /  {total_weeks}",
+        f"week  {weeks_done}  /  {total_weeks}",
         ha="center",
         va="top",
         fontsize=8,
