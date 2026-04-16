@@ -54,11 +54,12 @@ def main() -> None:
     os.makedirs(config.output_dir, exist_ok=True)
 
     figures: dict[str, Figure | None] = {
-        "current_month.png": tracker.plot_current_month("March"),
+        "current_month.png": tracker.plot_current_month("April"),
         "month_comparison.png": tracker.plot_month_comparison([
             "January",
             "February",
             "March",
+            "April",
         ]),
         "yearly_summary.png": tracker.plot_yearly_summary(),
     }
